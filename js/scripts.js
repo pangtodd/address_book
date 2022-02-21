@@ -104,10 +104,24 @@ $(document).ready(function() {
     $("input#work-email").val("");
     $("input#physical-address").val("");
     $("input#work-address").val("");
+    
+    function removeEmpties(newAddress) {
+      let newAddressValue=Object.values(newAddress);
+      forEach.newAddressValue {
+      if (newAddressValue.trim().length === 0){
+        $("p").remove("Object.keys(newAddress)");
+      }
+      };
+    }
+
 
     var newAddress = new Addresses(inputtedEmailAddress, inputtedWorkEmail, inputtedPhysicalAddress, inputtedWorkAddress)
     var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber);
     newContact.addresses=newAddress;
+    console.log(Object.keys(newAddress));
+    console.log(Object.values(newAddress));
+    removeEmpties(newAddress);
+    removeEmpties(newContact);
     addressBook.addContact(newContact);
     displayContactDetails(addressBook);
   });
