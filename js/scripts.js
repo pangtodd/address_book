@@ -106,14 +106,14 @@ $(document).ready(function() {
     $("input#work-address").val("");
     
     function removeEmpties(newAddress) {
-      let newAddressValue=Object.values(newAddress);
-      forEach.newAddressValue {
-      if (newAddressValue.trim().length === 0){
-        $("p").remove("Object.keys(newAddress)");
-      }
-      };
-    }
-
+      Object.keys(newAddress).forEach(function(key) {
+        if (newAddress[key].trim().length === 0){
+          let removeElement= '".'+key+'"';
+          console.log(removeElement);
+          // $("p").remove(removeElement);
+          }
+        }); 
+     };  
 
     var newAddress = new Addresses(inputtedEmailAddress, inputtedWorkEmail, inputtedPhysicalAddress, inputtedWorkAddress)
     var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber);
@@ -121,7 +121,6 @@ $(document).ready(function() {
     console.log(Object.keys(newAddress));
     console.log(Object.values(newAddress));
     removeEmpties(newAddress);
-    removeEmpties(newContact);
     addressBook.addContact(newContact);
     displayContactDetails(addressBook);
   });
