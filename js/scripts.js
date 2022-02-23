@@ -108,15 +108,17 @@ $(document).ready(function() {
     function removeEmpties(newAddress) {
       Object.keys(newAddress).forEach(function(key) {
         if (newAddress[key].trim().length === 0){
-          let removeElement= '".'+key+'"';
+          let removeElement= '#'+key;
           console.log(removeElement);
-          // $("p").remove(removeElement);
+          $(removeElement).remove();
           }
         }); 
      };  
 
     var newAddress = new Addresses(inputtedEmailAddress, inputtedWorkEmail, inputtedPhysicalAddress, inputtedWorkAddress)
     var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber);
+    removeEmpties(newAddress);
+    removeEmpties(newContact);
     newContact.addresses=newAddress;
     console.log(Object.keys(newAddress));
     console.log(Object.values(newAddress));
